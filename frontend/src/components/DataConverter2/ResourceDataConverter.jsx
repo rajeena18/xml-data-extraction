@@ -72,7 +72,7 @@ const ResourceDataConverter = () => {
 
         let token;
         try {
-            const res = await fetch('http://localhost:3001/getToken');
+            const res = await fetch('https://xml-data-extraction-backend.onrender.com/getToken');
             const data = await res.json();
             token = data.access_token;
             console.log("token:  ", token)
