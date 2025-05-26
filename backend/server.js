@@ -6,8 +6,19 @@ const fetch = require("node-fetch");
 const cors = require("cors");
 const app = express();
 
+const allowedOrigins = [
+  'https://xml-data-extraction-frontend.onrender.com',
+  'http://localhost:5173'
+];
+
 app.use(cors({
-    origin: 'http://localhost:5173', // Adjust if your frontend runs elsewhere
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  }
 }));
 
 const tenantID = process.env.TENANT_ID;
