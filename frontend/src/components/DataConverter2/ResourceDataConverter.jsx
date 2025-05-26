@@ -68,14 +68,14 @@ const ResourceDataConverter = () => {
         });
 
         setStatus('Fetching access token...');
-        console.log("resourceNodes: ", resourceNodes)
+        // console.log("resourceNodes: ", resourceNodes)
 
         let token;
         try {
             const res = await fetch('https://xml-data-extraction-backend.onrender.com/getToken');
             const data = await res.json();
             token = data.access_token;
-            console.log("token:  ", token)
+            // console.log("token:  ", token)
         } catch (error) {
             setStatus('Failed to fetch access token.');
             return;
