@@ -85,29 +85,29 @@ const ResourceDataConverter = () => {
 
         const endpoint = 'https://api.businesscentral.dynamics.com/v2.0/50b7a7db-965b-4a2e-8f58-39e635bf39b5/UAT/api/alletec/primavera/v2.0/companies(f08e82f1-72e8-ef11-9345-6045bd14c5d0)/resources';
 
-        // try {
-        //   for (const resource of resources) {
-        //     const response = await fetch(endpoint, {
-        //       method: 'POST',
-        //       headers: {
-        //         'Content-Type': 'application/json',
-        //         'Authorization': `Bearer ${token}`,
-        //       },
-        //       body: JSON.stringify(resource),
-        //     });
+        try {
+          for (const resource of resources) {
+            const response = await fetch(endpoint, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`,
+              },
+              body: JSON.stringify(resource),
+            });
 
-        //     if (!response.ok) {
-        //       const error = await response.text();
-        //       console.error('Error:', error);
-        //       setStatus(`Failed to send resource with objectId ${resource.objectId}`);
-        //       return;
-        //     }
-        //   }
-        //   setStatus('All resources sent successfully!');
-        // } catch (error) {
-        //   console.error('Submission Error:', error);
-        //   setStatus('Error sending data to Business Central.');
-        // }
+            if (!response.ok) {
+              const error = await response.text();
+              console.error('Error:', error);
+              setStatus(`Failed to send resource with objectId ${resource.objectId}`);
+              return;
+            }
+          }
+          setStatus('All resources sent successfully!');
+        } catch (error) {
+          console.error('Submission Error:', error);
+          setStatus('Error sending data to Business Central.');
+        }
     };
 
     return (
