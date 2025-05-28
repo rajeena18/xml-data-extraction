@@ -28,11 +28,11 @@ const DataConverter = () => {
 
             const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
 
-            const wbsTags = xmlDoc.getElementsByTagName('WBS');
+            const wbsTags = xmlDoc.getElementsByTagName('ResourceAssignment');
 
             const data = [];
 
-            for (let i = 0; i < wbsTags.length; i++) {
+            for (let i = 0; i < 5000; i++) {
                 const wbs = wbsTags[i];
                 const row = {};
 
@@ -50,7 +50,7 @@ const DataConverter = () => {
             const ws = XLSX.utils.json_to_sheet(data);
             const wb = XLSX.utils.book_new();
 
-            XLSX.utils.book_append_sheet(wb, ws, 'WBS Data');
+            XLSX.utils.book_append_sheet(wb, ws, 'Activity Data');
 
             const wbout = XLSX.write(wb, { bookType: 'xlsx', type: 'binary' })
             const blob = new Blob([s2ab(wbout)], { type: 'application/octet-stream' });
@@ -92,7 +92,7 @@ const DataConverter = () => {
       {dlink && (
         <a
           href={dlink}
-          download="wbs_data.xlsx"
+          download="resourceAssignment_data.xlsx"
           className="block mt-4 text-green-600 underline"
         >
           Download Excel File
