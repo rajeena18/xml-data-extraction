@@ -14,11 +14,11 @@ function App() {
   return (
     <>
       <div>
-        <DataConverter/>
+        {/* <DataConverter/> */}
         {/* <GetAccessToken/> */}
         {/* <DataConverter2/> */}
         {/* <ResourceDataConverter/> */}
-        {/* <XMLDataConverter/> */}
+        <XMLDataConverter/>
       </div>
     </>
   )

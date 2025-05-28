@@ -608,17 +608,6 @@ const XMLDataConverter = () => {
     };
 
     return (
-        // <div className="p-4">
-        //     <h2 className="text-xl font-bold mb-2">Upload XML File</h2>
-        //     <input type="file" onChange={handleFileChange} />
-        //     <button
-        //         onClick={handleProcessFile}
-        //         className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
-        //     >
-        //         Send to Business Central
-        //     </button>
-        //     <p className="mt-4">{status}</p>
-        // </div>
         <div className="upload-container">
             <h2 className="upload-title">Upload XML File</h2>
 
